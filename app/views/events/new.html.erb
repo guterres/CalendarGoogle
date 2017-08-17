@@ -1,0 +1,78 @@
+<% @page_title = "New event" %>
+<div class="text-center">
+  <h3>Add new Event</h3>
+</div>
+<div class="center">
+  <%= form_for @event, html: { class: 'form-horizontal'} do |f| %>
+    <%= render partial: 'error_messages', locals: { object: f.object } %>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Start Time</label>
+      <div class="col-sm-10">
+        <div  class="form-inline">
+          <div class="input-group">
+            <%= f.text_field :date_start, class: 'form-control', id: 'datepicker2' %>
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+          </div>
+          <div class="input-group  bootstrap-timepicker timepicker">
+            <%= f.text_field :time_start, class: 'form-control', id: 'timepicker2' %>
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">End Time</label>
+      <div class="col-sm-10">
+        <div  class="form-inline">
+          <div class="input-group date">
+            <%= f.text_field :date_end, class: 'form-control', id: 'datepicker3' %>
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+          </div>
+          <div class="input-group  bootstrap-timepicker timepicker">
+            <%= f.text_field :time_end, class: 'form-control', id: 'timepicker3' %>
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Location</label>
+      <div class="col-sm-10">
+        <%= f.text_field :location, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+        <%= f.text_area :description, rows: 3, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-2">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+      <div class="col-sm-8">
+        <%= link_to 'Cancel', events_path, class: 'btn btn-default' %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<% @page_title = "Events" %>
+
+<div class="well well">
+  <div class="container">
+    <%= link_to(new_event_path, class: 'pull-left btn btn-danger') do %>
+      <span class="fa fa-plus" aria-hidden="true"></span>
+      New Event
+    <% end %>
+
+    <%= render partial: 'filter' %>
+  </div>
+</div>
+
+<div class="text-center">
+  <h1>Events</h1>
+  <span class="badge"><%= @events.items.size %> results</span>
+</div>
+
+<% @events.items.each do |event| %>
+  <div class="bs-callout">
+    <%= print_summary(event.summary) %>
+    <%= print_location(event.location) %>
+    <%= print_description(event.description) %>
+    <%= print_times(event.start, event.end) %>
+  </div>
+<% end %>

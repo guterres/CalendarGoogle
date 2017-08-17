@@ -1,0 +1,23 @@
+
+  <%= form_tag events_path, method: :get, class: 'form-inline text-center' do %>
+  <div class="form-group">
+    <label>Start Date:</label>
+    <div class="input-group date">
+      <%= text_field_tag :min_time, params[:min_time], class: 'form-control', id: 'datepicker' %>
+      <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>End Date:</label>
+    <div class="input-group date">
+      <%= text_field_tag :max_time, params[:max_time], class: 'form-control', id: 'datepicker1' %>
+      <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+      </div>
+    </div>
+  </div>
+  <%= submit_tag 'Filter', name: nil, class: 'btn btn-primary' %>
+<% end %>
